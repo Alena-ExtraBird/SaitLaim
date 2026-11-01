@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Потом поменяем на красивый шрифт из Тильды */
+}
+
+.main-image-container img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    border: 2px solid #333;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.thumb {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.thumb:hover {
+    border-color: #4CAF50;
+    transform: translateY(-5px);
+}
+
+.header {
+    display: flex; /* Включаем Flexbox */
+    justify-content: space-between; /* Левую и правую часть разносим по краям */
+    align-items: center; /* Выравниваем всё по центру по вертикали */
+    background-color: #e0f2dc; /* Светло-зеленый фон, как на скрине */
+    padding: 15px 40px; /* Отступы: 15 сверху/снизу, 40 слева/справа */
+}
+
+/* --- ЛЕВАЯ ЧАСТЬ (Лого + Меню) --- */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Расстояние между логотипом и меню */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 900; /* Жирный шрифт */
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 25px; /* Расстояние между ссылками меню */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* --- ПРАВАЯ ЧАСТЬ (Телефон и иконки) --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.phone {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.socials, .actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Круглые иконки соцсетей */
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%; /* Делает круг */
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Иконки действий (профиль, корзина) */
+.action-icon {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* --- HERO БЛОК --- */
+.hero {
+    position: relative; /* Нужно для позиционирования плавающих картинок */
+    background: linear-gradient(135deg, #d8f5d0 0%, #b5ebc5 100%); /* Светло-зеленый градиент */
+    min-height: 100vh; /* Занимает всю высоту экрана */
+    display: flex;
+    justify-content: center; /* Центрируем контент по горизонтали */
+    align-items: center; /* Центрируем контент по вертикали */
+    text-align: center;
+    overflow: hidden; /* Чтобы кружки не создавали полосу прокрутки */
+    padding: 20px;
+}
+
+.hero-content {
+    z-index: 10; /* Чтобы текст был поверх кружков */
+    max-width: 800px; /* Ограничиваем ширину текста */
+}
+
+.hero-content h1 {
+    font-size: 64px; /* Очень крупный заголовок, как на макете */
+    font-weight: 900; /* Максимально жирный */
+    margin-bottom: 20px;
+    letter-spacing: 2px; /* Чуть раздвигаем буквы */
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.hero-description p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* --- Плавающие кружки (Лимончики) --- */
+.floating-item {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(167, 235, 177, 0.6); /* Полупрозрачный зеленый */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Легкая тень для объема */
+}
+
+/* Настраиваем позиции для каждого кружка */
+.item-top {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    right: 10%;
+}
+
+.item-bottom {
+    width: 200px;
+    height: 200px;
+    bottom: -80px;
+    right: 15%;
+}
+
+.item-left {
+    width: 250px;
+    height: 250px;
+    bottom: -100px;
+    left: -50px;
+}
+
+/* --- ФУТЕР --- */
+.footer {
+    background-color: #e0f2dc; /* Светло-зеленый фон */
+    color: #000;
+    padding: 60px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Разносит левую часть и правую */
+    align-items: flex-start; /* Прижимает всё к верху */
+    flex-wrap: wrap; /* Позволяет переносить элементы, если не влезают */
+    gap: 40px;
+}
+
+/* --- ЛЕВАЯ ЧАСТЬ --- */
+.footer-left {
+    flex: 0 0 30%; /* Левая часть занимает 30% ширины */
+    display: flex;
+    flex-direction: column; /* Элементы друг под другом */
+    gap: 20px;
+}
+
+.footer-left .logo {
+    font-size: 32px;
+    font-weight: 900;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.requisites p {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+/* --- ПРАВАЯ ЧАСТЬ (Колонки) --- */
+.footer-links {
+    flex: 1; /* Занимает оставшееся место */
+    display: flex;
+    justify-content: space-between; /* Раскидывает 3 колонки */
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.footer-menu li {
+    margin-bottom: 10px;
+}
+
+.footer-menu a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #006400;
+}
+
+.footer-highlight {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+/* --- ТЕКСТ ПРО КОПИРОВАНИЕ --- */
+.footer-copyright {
+    flex: 0 0 100%; /* Занимает 100% ширины и переносится на новую строку */
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 20px;
+    border-top: 1px solid #c3dbbf; /* Тонкая линия сверху */
+    padding-top: 20px;
+}
